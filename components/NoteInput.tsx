@@ -14,19 +14,28 @@ const NoteInput = ({ noteId }: Props) => {
 
     const navigation = useNavigation<ScreenNavigationProp>()
 
+    const [title, setTitle] = useState<string>('')
     const [text, setText] = useState<string>('')
+
+    console.log(text)
+    console.log(title)
 
     useEffect(() => {
         if (noteId) {
-            getNote(noteId).then(result => setText(result?.text ?? ''))
+            getNote(noteId).then(result => {
+                console.log(result)
+
+                setText(result?.text ?? '')
+                setTitle(result?.title ?? '')
+            })
         }
     }, [])
 
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerLeft: () => <SaveNote text={text} id={noteId ?? ''} />
+            headerLeft: () => <SaveNote text={text} title={title} id={noteId ?? ''} />
         })
-    }, [navigation, text, noteId])
+    }, [navigation, text, title, noteId])
 
     return (
         <>
@@ -35,7 +44,17 @@ const NoteInput = ({ noteId }: Props) => {
                 style={styles.textInput}
                 value={text}
                 onChangeText={(text) => setText(text)}
+                placeholder='Şifre İsmi Giriniz...'
                 autoFocus={true}
+
+            />
+
+            <TextInput
+                style={styles.textInputTitle}
+                value={title}
+                onChangeText={(text) => setTitle(text)}
+                placeholder='Şifre Giriniz...'
+
             />
         </>
     )
@@ -44,13 +63,24 @@ const NoteInput = ({ noteId }: Props) => {
 export default NoteInput
 
 const styles = StyleSheet.create({
-    textInput: {
-        backgroundColor: '#ffb70342',
+    textInputTitle: {
+        backgroundColor: '#f8f8f9',
         width: '100%',
-        flex: 1,
         fontSize: 16,
         paddingHorizontal: 20,
-        paddingTop: 30,
-        paddingBottom: 20
+        paddingTop: 20,
+        paddingBottom: 20,
+        borderBottomWidth: 1,
+        borderColor: '#fefefe'
+    },
+    textInput: {
+        backgroundColor: '#f8f8f9',
+        width: '100%',
+        fontSize: 16,
+        paddingHorizontal: 20,
+        paddingTop: 20,
+        paddingBottom: 20,
+        borderBottomWidth: 1,
+        borderColor: '#fefefe'
     }
 })

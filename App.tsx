@@ -6,9 +6,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import EditNoteScreen from './screens/EditNoteScreen';
 
-import { RootStackParamList } from './types';
-
 import NewNoteButton from './components/NewNoteButton';
+
+import { RootStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -22,13 +22,14 @@ export default function App() {
           name="HomeScreen"
           component={HomeScreen}
           options={{
-            headerTitle: 'All Notes',
+            headerTitle: 'Şifreler',
             headerRight: () => <NewNoteButton />
           }}
         />
         <Stack.Screen
           name="EditNoteScreen"
           component={EditNoteScreen}
+          options={{ presentation: 'modal' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

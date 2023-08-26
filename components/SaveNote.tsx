@@ -6,12 +6,14 @@ import { Ionicons } from '@expo/vector-icons'
 import { Note, saveNote } from '../services/NoteStoreService'
 import { ScreenNavigationProp } from '../types'
 
-const SaveNote = ({ text, id }: Note) => {
+const SaveNote = ({ text, title, id }: Note) => {
+
+    console.log("BURASI",text, title, id)
 
     const navigation = useNavigation<ScreenNavigationProp>()
 
     const saveNotHandler = async () => {
-        await saveNote(text, id)
+        await saveNote(text, title, id)
         navigation.goBack()
     }
 

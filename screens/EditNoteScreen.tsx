@@ -2,8 +2,9 @@ import React, { useLayoutEffect } from 'react'
 import { useRoute, useNavigation } from '@react-navigation/native'
 
 import NoteInput from '../components/NoteInput'
-import { EditScreenRouteProp, ScreenNavigationProp } from '../types'
 import DeleteNote from '../components/DeleteNote'
+
+import { EditScreenRouteProp, ScreenNavigationProp } from '../types'
 
 const EditNoteScreen = () => {
 
@@ -13,7 +14,7 @@ const EditNoteScreen = () => {
 
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerTitle: noteId ? 'Edit Note' : 'New Note',
+            headerTitle: noteId ? 'Şifre Güncelle' : 'Yeni Şifre',
             headerRight: () => (noteId ? <DeleteNote noteId={noteId} /> : <></>)
         })
     }, [navigation])
