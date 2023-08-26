@@ -2,7 +2,8 @@ import React from 'react'
 import { Pressable } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
-import { FontAwesome } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons';
+
 import { ScreenNavigationProp } from '../types'
 
 const NewNoteButton = () => {
@@ -10,7 +11,7 @@ const NewNoteButton = () => {
 
     return (
         <Pressable onPress={() => { navigation.navigate('EditNoteScreen', { noteId: undefined }) }}>
-            <FontAwesome name='pencil-square-o' size={30} color={'#ffb703'} />
+            <AntDesign name="plus" size={30} color="#ffb703" />
         </Pressable>
     )
 }

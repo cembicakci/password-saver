@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState } from "react";
+import React, { useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
@@ -12,11 +12,14 @@ const SavedNotesList = () => {
     const navigation = useNavigation<ScreenNavigationProp>();
 
     const [data, setData] = useState<Note[]>([])
+    const [filteredData, setFilteredData] = useState<Note[]>([])
+
+    const [search, setSearch] = useState<string>()
 
     useLayoutEffect(() => {
         navigation.setOptions({
             headerSearchBarOptions: {
-                // search bar options
+                onChangeText: (event) => setSearch(event.nativeEvent.text),
             },
         });
     }, [navigation]);
@@ -27,13 +30,21 @@ const SavedNotesList = () => {
         }, [])
     )
 
+    useEffect(() => {
+        if (search) {
+            setFilteredData(data.filter(item => item.text.toLowerCase().includes(search?.toLowerCase())))
+        } else {
+            setFilteredData(data)
+        }
+    }, [search, data])
+
     return (
         <View style={styles.container}>
             <ScrollView
                 contentInsetAdjustmentBehavior="automatic"
             >
                 {
-                    data.map((note) => (
+                    filteredData.map((note) => (
                         <Pressable key={note.id} onPress={() => { navigation.navigate('EditNoteScreen', { noteId: note.id }) }}>
                             <View style={styles.row}>
                                 <Text style={styles.note}>
@@ -57,7 +68,6 @@ const styles = StyleSheet.create({
     row: {
         borderBottomWidth: 1,
         borderBottomColor: '#e6e6e6',
-        alignSelf: 'center',
         height: 60,
         backgroundColor: '#fff',
         width: '100%',

@@ -59,23 +59,23 @@ export default NoteInput
 
 const styles = StyleSheet.create({
     textInputTitle: {
-        backgroundColor: '#f8f8f9',
+        backgroundColor: '#fff',
         width: '100%',
         fontSize: 16,
         paddingHorizontal: 20,
         paddingTop: 20,
         paddingBottom: 20,
         borderBottomWidth: 1,
-        borderColor: '#fefefe'
+        borderBottomColor: '#e6e6e6'
     },
     textInput: {
-        backgroundColor: '#f8f8f9',
+        backgroundColor: '#fff',
         width: '100%',
         fontSize: 16,
         paddingHorizontal: 20,
         paddingTop: 20,
         paddingBottom: 20,
         borderBottomWidth: 1,
-        borderColor: '#fefefe'
+        borderBottomColor: '#e6e6e6'
     }
 })

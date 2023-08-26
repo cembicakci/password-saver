@@ -20,11 +20,11 @@ const DeleteNote = ({ noteId }: Props) => {
 
     return (
         <Pressable onPress={() => {
-            Alert.alert('Delete', 'Are you sure?', [{
-                text: 'Yes', style: 'destructive', onPress: () => {
+            Alert.alert('Emin misiniz?', 'Şifreyi silmek üzeresiniz...', [{
+                text: 'Evet', style: 'destructive', onPress: () => {
                     deleteNoteHandler()
                 }
-            }, { text: 'No' }])
+            }, { text: 'Hayır' }])
         }}>
             <FontAwesome name={'trash-o'} size={30} color={'#ffb703'} />
         </Pressable >
