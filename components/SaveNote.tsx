@@ -8,8 +8,6 @@ import { ScreenNavigationProp } from '../types'
 
 const SaveNote = ({ text, title, id }: Note) => {
 
-    console.log("BURASI",text, title, id)
-
     const navigation = useNavigation<ScreenNavigationProp>()
 
     const saveNotHandler = async () => {

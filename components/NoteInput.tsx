@@ -17,14 +17,9 @@ const NoteInput = ({ noteId }: Props) => {
     const [title, setTitle] = useState<string>('')
     const [text, setText] = useState<string>('')
 
-    console.log(text)
-    console.log(title)
-
     useEffect(() => {
         if (noteId) {
             getNote(noteId).then(result => {
-                console.log(result)
-
                 setText(result?.text ?? '')
                 setTitle(result?.title ?? '')
             })

@@ -23,14 +23,11 @@ export const getAllNotes = async () => {
 
 export const getNote = async (id: string) => {
     const noteStore = await getAllNotes()
-    console.log("noteStore", noteStore)
     const note = noteStore.notes.find(note => note.id === id)
     return note
 }
 
 export const saveNote = async (text: string, title: string, noteId: string | undefined) => {
-    console.log("saveNote", text, title)
-    
     const noteStore = await getAllNotes()
     if (noteId) {
         //Edit note
