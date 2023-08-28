@@ -1,7 +1,5 @@
 
 import { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -9,19 +7,18 @@ import { RootStackParamList } from '../../types';
 
 import EditNoteScreen from '../screens/EditNoteScreen';
 import LoginScreen from '../screens/LoginScreen';
-import NewNoteButton from '../components/NewNoteButton';
 import HomeScreen from '../screens/HomeScreen';
+
+import NewNoteButton from '../components/NewNoteButton';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const StackNavigation = () => {
 
-    const [login, setLogin] = useState(true)
+    const [login, setLogin] = useState<Boolean>(true)
 
     return (
         <NavigationContainer>
-            <StatusBar style="light" />
-
             <Stack.Navigator>
                 {
                     login ?
