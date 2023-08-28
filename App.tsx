@@ -20,7 +20,7 @@ export default function App() {
   const [login, setLogin] = useState(false)
   return (
     <NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
 
       <Stack.Navigator>
         {
