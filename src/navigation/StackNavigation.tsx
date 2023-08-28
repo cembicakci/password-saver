@@ -10,12 +10,13 @@ import LoginScreen from '../screens/LoginScreen';
 import HomeScreen from '../screens/HomeScreen';
 
 import NewNoteButton from '../components/NewNoteButton';
+import { useSelector } from 'react-redux';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const StackNavigation = () => {
 
-    const [login, setLogin] = useState<Boolean>(true)
+    const { login } = useSelector((x: any) => x.user)
 
     return (
         <NavigationContainer>
