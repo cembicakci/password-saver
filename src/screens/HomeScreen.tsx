@@ -1,5 +1,6 @@
 import React from 'react'
-import SavedNotesList from '../components/SavedNotesList';
+import SavedNotesList from '../components/SavedNotesList'
+
 
 const HomeScreen = () => {
 

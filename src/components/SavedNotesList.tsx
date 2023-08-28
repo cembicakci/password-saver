@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
 import { Note, getAllNotes } from "../services/NoteStoreService";
-import { ScreenNavigationProp } from "../types";
+import { ScreenNavigationProp } from "../../types";
 
 import { Feather } from '@expo/vector-icons';
 

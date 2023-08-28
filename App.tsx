@@ -7,17 +7,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { RootStackParamList } from './types';
 
-import HomeScreen from './screens/HomeScreen';
-import EditNoteScreen from './screens/EditNoteScreen';
-import LoginScreen from './screens/LoginScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import EditNoteScreen from './src/screens/EditNoteScreen';
+import LoginScreen from './src/screens/LoginScreen';
 
-import NewNoteButton from './components/NewNoteButton';
+import NewNoteButton from './src/components/NewNoteButton';
+
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
 
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(true)
   return (
     <NavigationContainer>
       <StatusBar style="light" />

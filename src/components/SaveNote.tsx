@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 
 import { Ionicons } from '@expo/vector-icons'
 import { Note, saveNote } from '../services/NoteStoreService'
-import { ScreenNavigationProp } from '../types'
+import { ScreenNavigationProp } from '../../types'
 
 const SaveNote = ({ text, title, id }: Note) => {
 

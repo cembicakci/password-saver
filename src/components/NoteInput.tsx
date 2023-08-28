@@ -3,7 +3,7 @@ import { StyleSheet, TextInput } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 import { getNote } from '../services/NoteStoreService'
-import { ScreenNavigationProp } from '../types'
+import { ScreenNavigationProp } from '../../types'
 import SaveNote from './SaveNote'
 
 type Props = {
