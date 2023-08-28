@@ -3,6 +3,7 @@ import type { RouteProp } from '@react-navigation/native'
 
 export type RootStackParamList = {
     HomeScreen: undefined,
+    LoginScreen: undefined,
     EditNoteScreen: { noteId: string | undefined }
 }
 
