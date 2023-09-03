@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator, TransitionPresets } from '@react-navigation/stack'
 
 import { RootStackParamList } from '../../types';
 
@@ -11,8 +11,9 @@ import HomeScreen from '../screens/HomeScreen';
 
 import NewNoteButton from '../components/NewNoteButton';
 import { useSelector } from 'react-redux';
+import { Platform, StyleSheet } from 'react-native';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>();
 
 const StackNavigation = () => {
 
@@ -29,20 +30,28 @@ const StackNavigation = () => {
                                 component={HomeScreen}
                                 options={{
                                     headerTitle: 'Şifreler',
-                                    headerRight: () => <NewNoteButton />
+                                    headerRight: () => <NewNoteButton />,
+                                    headerTitleAlign: 'center'
                                 }}
                             />
                             <Stack.Screen
                                 name="EditNoteScreen"
                                 component={EditNoteScreen}
-                                options={{ presentation: 'modal' }}
+                                options={{
+                                    presentation: 'modal',
+                                    gestureEnabled: true,
+                                    ...(Platform.OS === 'android' && TransitionPresets.ModalPresentationIOS),
+                                    headerTitleAlign: 'center'
+                                }}
                             />
                         </>
                         :
                         <Stack.Screen
                             name="LoginScreen"
                             component={LoginScreen}
-                            options={{ headerShown: false }} />
+                            options={{
+                                headerShown: false,
+                            }} />
                 }
 
             </Stack.Navigator>

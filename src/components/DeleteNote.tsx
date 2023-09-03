@@ -25,7 +25,7 @@ const DeleteNote = ({ noteId }: Props) => {
                     deleteNoteHandler()
                 }
             }, { text: 'Hayır' }])
-        }}>
+        }} style={styles.button}>
             <FontAwesome name={'trash-o'} size={30} color={'#ffb703'} />
         </Pressable >
     )
@@ -33,4 +33,8 @@ const DeleteNote = ({ noteId }: Props) => {
 
 export default DeleteNote
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    button: {
+        marginRight: 12
+    }
+})
