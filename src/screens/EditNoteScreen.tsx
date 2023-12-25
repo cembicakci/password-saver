@@ -15,7 +15,7 @@ const EditNoteScreen = () => {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerTitle: noteId ? 'Şifre Güncelle' : 'Yeni Şifre',
-            headerRight: () => (noteId ? <DeleteNote noteId={noteId}/> : <></>)
+            headerLeft: () => (noteId ? <DeleteNote noteId={noteId} /> : <></>)
         })
     }, [navigation])
 

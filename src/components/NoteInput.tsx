@@ -28,7 +28,7 @@ const NoteInput = ({ noteId }: Props) => {
 
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerLeft: () => <SaveNote text={text} title={title} id={noteId ?? ''} />
+            headerRight: () => <SaveNote text={text} title={title} id={noteId ?? ''} />
         })
     }, [navigation, text, title, noteId])
 

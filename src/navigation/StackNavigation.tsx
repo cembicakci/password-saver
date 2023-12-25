@@ -1,7 +1,6 @@
 
-import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, TransitionPresets } from '@react-navigation/stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { RootStackParamList } from '../../types';
 
@@ -11,9 +10,8 @@ import HomeScreen from '../screens/HomeScreen';
 
 import NewNoteButton from '../components/NewNoteButton';
 import { useSelector } from 'react-redux';
-import { Platform, StyleSheet } from 'react-native';
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const StackNavigation = () => {
 
@@ -29,9 +27,8 @@ const StackNavigation = () => {
                                 name="HomeScreen"
                                 component={HomeScreen}
                                 options={{
-                                    headerTitle: 'Şifreler',
                                     headerRight: () => <NewNoteButton />,
-                                    headerTitleAlign: 'center'
+
                                 }}
                             />
                             <Stack.Screen
@@ -39,8 +36,6 @@ const StackNavigation = () => {
                                 component={EditNoteScreen}
                                 options={{
                                     presentation: 'modal',
-                                    gestureEnabled: true,
-                                    ...(Platform.OS === 'android' && TransitionPresets.ModalPresentationIOS),
                                     headerTitleAlign: 'center'
                                 }}
                             />

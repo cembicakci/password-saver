@@ -23,12 +23,16 @@ const LoginScreen = () => {
             });
 
             auth.then(result => {
-                console.log(result)
                 if (result.success) {
+                    dispatch(changeUser())
+                } else {
+                    Alert.alert('Uyarı', 'Telefon şifresi bulunmadığından dolayı doğrudan giriş yapıldı', [{ text: 'Tamam' }])
                     dispatch(changeUser())
                 }
             }
-            );
+            ).catch(e => {
+                console.log(e)
+            });
         } else {
             //Kullanıcının şifresi yok, doğrudan giriş yapacak.
             Alert.alert('Uyarı', 'Telefon şifresi bulunmadığından dolayı doğrudan giriş yapıldı', [{ text: 'Tamam' }])

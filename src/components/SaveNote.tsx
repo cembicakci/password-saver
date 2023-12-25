@@ -17,7 +17,7 @@ const SaveNote = ({ text, title, id }: Note) => {
 
     return (
         <Pressable onPress={saveNotHandler}>
-            <Ionicons name={'chevron-back'} size={30} color={'#ffb703'} />
+            <Ionicons name="checkmark-circle" size={30} color="#ffb703" />
         </Pressable>
     )
 }
